@@ -18,7 +18,7 @@ makeCacheMatrix <- function(x = matrix()) {
         getValMatrix <- function() x
         
         #set the value of the Invertible Matrix
-        setInvMatrix <- function(inverse) inverseMatrix <<- inverseMatrix
+        setInvMatrix <- function(inverse) inverseMatrix <<- inverse
         
         #get the value of the Invertible Matrix
         getInvMatrix <- function() inverseMatrix
@@ -36,7 +36,7 @@ makeCacheMatrix <- function(x = matrix()) {
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
         inverseMatrix <- x$getInvMatrix()
-        if(is.null(inverseMatrix)) {    #if inverse matrix is not null
+        if(!is.null(inverseMatrix)) {    #if inverse matrix is not null
                 message("Getting cached Invertible Matrix") #print message
                 return(inverseMatrix) #return the invertible matrix
         }
@@ -47,3 +47,6 @@ cacheSolve <- function(x, ...) {
         x$setInvMatrix(inverseMatrix) #set the invertible matrix
         return(inverseMatrix)   #return the invertible matrix
 }
+
+
+#f76ff9531f70d30df26221ca5ad84a4826fc5bc0
